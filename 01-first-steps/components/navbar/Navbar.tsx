@@ -1,5 +1,4 @@
 export const Navbar = () => {
-  console.log("navbar creado");
   return (
     <nav className="bg-opacity-30 m-2 flex rounded-2xl bg-blue-900 p-2">
       <span>Home</span>
