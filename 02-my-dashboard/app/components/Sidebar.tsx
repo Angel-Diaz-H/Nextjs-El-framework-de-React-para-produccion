@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const Sidebar = () => {
   return (
     <div
@@ -17,10 +19,12 @@ export const Sidebar = () => {
         <p className="text-slate-500">Welcome back,</p>
         <a href="#" className="inline-flex items-center space-x-2">
           <span>
-            <img
+            <Image
               className="h-8 w-8 rounded-full"
-              src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&q=80"
-              alt=""
+              src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c"
+              alt="User avatar"
+              height={50}
+              width={50}
             />
           </span>
           <span className="text-sm font-bold md:text-base">Angel Díaz</span>
