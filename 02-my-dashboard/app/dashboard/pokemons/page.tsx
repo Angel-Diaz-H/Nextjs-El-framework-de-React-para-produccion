@@ -10,7 +10,7 @@ const getPokEmons = async (
   ).then((res) => res.json());
 
   const pokemons = data.results.map((pokemon) => ({
-    id: pokemon.name.split("/").at(-2)!,
+    id: pokemon.url.split("/").at(-2)!,
     name: pokemon.name,
     url: pokemon.url,
   }));
@@ -24,14 +24,15 @@ export default async function PokemonsPage() {
   return (
     <div className="flex flex-col">
       <div className="flex flex-wrap items-center justify-center gap-10">
-        <Image
-          src={
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/10.svg"
-          }
-          alt={"pokemon"}
-          width={100}
-          height={100}
-        />
+        {pokemons.map((pokemon) => (
+          <Image
+            key={pokemon.id}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+            alt={pokemon.name}
+            width={100}
+            height={100}
+          />
+        ))}
       </div>
     </div>
   );

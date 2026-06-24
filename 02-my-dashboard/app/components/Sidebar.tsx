@@ -33,7 +33,7 @@ export const Sidebar = () => {
     <div
       id="menu"
       style={{ width: "400px" }}
-      className="left-0 z-10 h-screen min-h-screen w-64 bg-gray-900 text-slate-300"
+      className="left-0 z-10 min-h-screen w-64 bg-gray-900 text-slate-300"
     >
       <div id="logo" className="my-4 px-6">
         <h1 className="flex items-center text-lg font-bold text-white md:text-2xl">
