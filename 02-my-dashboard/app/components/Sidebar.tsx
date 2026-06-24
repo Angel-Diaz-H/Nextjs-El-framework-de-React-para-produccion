@@ -14,14 +14,12 @@ const menuItems = [
     title: "Dashboard",
     subTitle: "Visualización",
   },
-
   {
     path: "/dashboard/counter",
     icon: <IoCalculator size={40} />,
     title: "Counter",
     subTitle: "Contador client side",
   },
-
   {
     path: "/dashboard/pokemons",
     icon: <IoFootball size={40} />,
