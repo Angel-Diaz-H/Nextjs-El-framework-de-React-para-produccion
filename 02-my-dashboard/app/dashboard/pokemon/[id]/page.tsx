@@ -1,35 +1,48 @@
 import { Pokemon } from "@/pokemons";
 import { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
-  const pokemon = await getPokemon(id);
+  try {
+    const { id } = await params;
+    const pokemon = await getPokemon(id);
 
-  return {
-    title: `#${pokemon.id} - ${pokemon.name}`,
-    description: `Información sobre el pokémon ${pokemon.name}`,
-  };
+    return {
+      title: `#${pokemon.id} - ${pokemon.name}`,
+      description: `Información sobre el pokémon ${pokemon.name}`,
+    };
+  } catch (error) {
+    return {
+      title: "Pokémon no encontrado",
+      description: "No se pudo encontrar el pokémon solicitado.",
+    };
+  }
 }
 
 const getPokemon = async (id: string): Promise<Pokemon> => {
-  const pokemon: Pokemon = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${id}`,
-    {
-      cache: "force-cache", //TODO: Cambiar en futuro
+  try {
+    const pokemon: Pokemon = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${id}`,
+      {
+        cache: "force-cache", //TODO: Cambiar en futuro
 
-      // next: {
-      //   revalidate: 60 * 60 * 24 * 30 * 6, // 6 meses
-      // },
-    },
-  ).then((res) => res.json());
-  console.log(`Se cargó ${pokemon.name}`);
+        // next: {
+        //   revalidate: 60 * 60 * 24 * 30 * 6, // 6 meses
+        // },
+      },
+    ).then((res) => res.json());
 
-  return pokemon;
+    console.log(`Se cargó ${pokemon.name}`);
+
+    return pokemon;
+  } catch (error) {
+    notFound();
+  }
 };
 
 export default async function PokemonPage({ params }: Props) {
