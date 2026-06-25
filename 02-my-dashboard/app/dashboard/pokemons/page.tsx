@@ -1,5 +1,6 @@
 import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/app/pokemons";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 const getPokEmons = async (
   limit = 20,
@@ -15,6 +16,8 @@ const getPokEmons = async (
     url: pokemon.url,
   }));
 
+  // throw new Error("Esto es un error que no debería suceder");
+  // throw notFound();
   return pokemons;
 };
 
