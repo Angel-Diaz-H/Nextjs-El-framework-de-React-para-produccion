@@ -7,8 +7,8 @@ interface Props {
   pokemon: SimplePokemon;
 }
 
-export const PokemonCard = ({ pokemon }: Props) => {
-  const { id, name } = pokemon;
+export const PokemonCard = async ({ pokemon }: Props) => {
+  const { id, name } = await pokemon;
   return (
     <div className="right-0 mx-auto mt-2 w-60">
       <div className="flex flex-col overflow-hidden rounded bg-white shadow-lg">
@@ -26,7 +26,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
           </p>
           <div className="mt-5">
             <Link
-              href={`dashboard/pokemon/${id}`}
+              href={`/dashboard/pokemon/${id}`}
               className="rounded-full border px-4 py-2 text-xs font-semibold text-gray-100"
             >
               Más información
