@@ -17,13 +17,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const getPokemon = async (id: string): Promise<Pokemon> => {
-  const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-    cache: "force-cache", //TODO: Cambiar en futuro
+  const pokemon: Pokemon = await fetch(
+    `https://pokeapi.co/api/v2/pokemon/${id}`,
+    {
+      cache: "force-cache", //TODO: Cambiar en futuro
 
-    // next: {
-    //   revalidate: 60 * 60 * 24 * 30 * 6, // 6 meses
-    // },
-  }).then((res) => res.json());
+      // next: {
+      //   revalidate: 60 * 60 * 24 * 30 * 6, // 6 meses
+      // },
+    },
+  ).then((res) => res.json());
+  console.log(`Se cargó ${pokemon.name}`);
 
   return pokemon;
 };
