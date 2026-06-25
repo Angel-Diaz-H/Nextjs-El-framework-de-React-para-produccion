@@ -7,8 +7,8 @@ interface Props {
   pokemon: SimplePokemon;
 }
 
-export const PokemonCard = async ({ pokemon }: Props) => {
-  const { id, name } = await pokemon;
+export const PokemonCard = ({ pokemon }: Props) => {
+  const { id, name } = pokemon;
   return (
     <div className="right-0 mx-auto mt-2 w-60">
       <div className="flex flex-col overflow-hidden rounded bg-white shadow-lg">
