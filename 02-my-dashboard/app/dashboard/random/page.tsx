@@ -1,5 +1,13 @@
+import { cacheLife } from "next/cache";
+
 export default async function RandomPage() {
   "use cache";
+  cacheLife({
+    stale: 3, //
+    revalidate: 5, // 2 hours.
+    // expire: 86400, // 1 day.
+  });
+
   const random = Math.random();
   const now = Date.now();
   const date = new Date();
