@@ -1,6 +1,4 @@
 import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/pokemons";
-import Image from "next/image";
-import { notFound } from "next/navigation";
 
 const getPokEmons = async (
   limit = 20,
