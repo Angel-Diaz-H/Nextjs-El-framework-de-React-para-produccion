@@ -25,6 +25,7 @@ const getPokEmons = async (
 };
 
 export default async function PokemonsPage() {
+  "use cache";
   const pokemons = await getPokEmons(151);
 
   return (
