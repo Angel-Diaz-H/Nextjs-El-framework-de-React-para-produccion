@@ -29,7 +29,7 @@ export default async function PokemonsPage() {
   "use cache";
 
   cacheTag("pokemons");
-  revalidateTag("pokemons", "max");
+  // revalidateTag("pokemons", "max");
 
   // cacheLife({
   //   stale: 10,
@@ -41,7 +41,7 @@ export default async function PokemonsPage() {
   return (
     <div className="flex flex-col">
       <span className="my-2 text-5xl">
-        Listado de Pokémons <small>estático</small>
+        Listado de Pokémons <small className="text-blue-500">estático</small>
       </span>
 
       <PokemonGrid pokemons={pokemons} />
