@@ -6,7 +6,7 @@ export const store = configureStore({
   // Como hojas de nuestro store.
   // Aquí habrá pequeños reducers.
   reducer: {
-    counterReducer,
+    counter: counterReducer,
   },
 });
 
