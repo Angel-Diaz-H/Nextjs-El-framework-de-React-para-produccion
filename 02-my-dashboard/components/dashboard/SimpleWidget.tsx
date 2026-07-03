@@ -1,11 +1,19 @@
 import { IoCafeOutline } from "react-icons/io5";
 
-export const SimpleWidget = () => {
+interface Props {
+  title: string;
+  subtitle?: string;
+  label?: string;
+  icon?: React.ReactNode;
+  href?: string;
+}
+
+export const SimpleWidget = ({ title, subtitle, label, icon, href }: Props) => {
   return (
     <div className="mx-2 min-w-full rounded-2xl border border-gray-50 bg-white p-3 shadow-xl sm:min-w-[25%]">
       <div className="flex flex-col">
         <div>
-          <h2 className="text-center font-bold text-gray-600">Contador</h2>
+          <h2 className="text-center font-bold text-gray-600">{label}</h2>
         </div>
         <div className="my-3">
           <div className="flex flex-row items-center justify-center space-x-1">
