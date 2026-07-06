@@ -1,4 +1,5 @@
 import { FavoritePokemons, SimplePokemon } from "@/pokemons";
+import { IoHeartOutline } from "react-icons/io5";
 
 export const metadata = {
   title: "Favoritos",
@@ -16,6 +17,7 @@ export default async function PokemonsPage({ pokemon }: Props) {
         Pokemons favoritos <small className="text-blue-500">global state</small>
       </span>
       <FavoritePokemons />
+      {/* <NoFavorites /> */}
     </div>
   );
 }
