@@ -9,18 +9,12 @@ export const FavoritePokemons = () => {
   const favoritePokemons = useAppSelector((state) =>
     Object.values(state.pokemons.favorites),
   );
-
-  // const [pokemons, setPokemons] = useState(favoritePokemons);
-
-  // useEffect(() => {
-  //   setPokemons(favoritePokemons);
-  // }, [favoritePokemons]);
   return (
     <>
       {favoritePokemons.length === 0 ? (
-        <PokemonGrid pokemons={favoritePokemons} />
-      ) : (
         <NoFavorites />
+      ) : (
+        <PokemonGrid pokemons={favoritePokemons} />
       )}
     </>
   );
