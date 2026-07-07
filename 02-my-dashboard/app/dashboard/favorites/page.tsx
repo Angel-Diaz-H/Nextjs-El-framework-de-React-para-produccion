@@ -1,16 +1,11 @@
-import { FavoritePokemons, SimplePokemon } from "@/pokemons";
-import { IoHeartOutline } from "react-icons/io5";
+import { FavoritePokemons } from "@/pokemons";
 
 export const metadata = {
   title: "Favoritos",
   description: "Pokemons",
 };
 
-interface Props {
-  pokemon: SimplePokemon;
-}
-
-export default async function PokemonsPage({ pokemon }: Props) {
+export default async function PokemonsPage() {
   return (
     <div className="flex flex-col">
       <span className="my-2 text-5xl">
