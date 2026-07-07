@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, Middleware } from "@reduxjs/toolkit";
 import counterReducer from "./counter/counterSlice";
 import pokemonsReducer from "./pokemons/pokemon";
+import { localStorageMiddleware } from "./middlewares/localStorage-middleware";
 
 export const store = configureStore({
   // Como hojas de nuestro store.
@@ -10,6 +11,8 @@ export const store = configureStore({
     counter: counterReducer,
     pokemons: pokemonsReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(localStorageMiddleware as Middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
