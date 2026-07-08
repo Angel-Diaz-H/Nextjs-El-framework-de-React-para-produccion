@@ -6,11 +6,11 @@ export async function GET(request: Request) {
 
   await prisma.todo.createMany({
     data: [
-      { descrition: "Piedra del alma", complete: true },
-      { descrition: "Piedra del poder" },
-      { descrition: "Piedra del tiempo" },
-      { descrition: "Piedra de la realidad" },
-      { descrition: "Piedra del espacio" },
+      { description: "Piedra del alma", complete: true },
+      { description: "Piedra del poder" },
+      { description: "Piedra del tiempo" },
+      { description: "Piedra de la realidad" },
+      { description: "Piedra del espacio" },
     ],
   });
 
