@@ -29,3 +29,9 @@ Pasos para levantar la app en desarrollo:
    ```powershell
    npx prisma generate
    ```
+
+6. Ejecutar la seed:
+
+   ```
+   localhost:3000/api/seed
+   ```
