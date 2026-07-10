@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CiBookmarkCheck, CiLogout } from "react-icons/ci";
-import { SidebarItem } from "./SidebarItem";
+import { CiLogout } from "react-icons/ci";
+import { SidebarItem } from "@/components";
 
 export const Sidebar = () => {
   return (
@@ -11,10 +11,10 @@ export const Sidebar = () => {
           <Link href="#" title="home">
             <Image
               src="/"
-              className="h-10 w-36 rounded-2xl bg-teal-700"
+              className="h-10 w-36 rounded-3xl bg-teal-500"
               alt="tailus logo"
-              width={10}
-              height={36}
+              width={150}
+              height={150}
             />
           </Link>
         </div>
@@ -24,14 +24,15 @@ export const Sidebar = () => {
             src="/"
             alt=""
             className="m-auto h-10 w-10 rounded-full bg-sky-500 object-cover lg:h-28 lg:w-28"
-            width={10}
-            height={10}
+            width={150}
+            height={1550}
           />
           <h5 className="mt-4 hidden text-xl font-semibold text-gray-600 lg:block">
             Cynthia J. Watts
           </h5>
           <span className="hidden text-gray-400 lg:block">Admin</span>
         </div>
+
         <SidebarItem />
       </div>
 

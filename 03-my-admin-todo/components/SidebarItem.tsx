@@ -15,6 +15,7 @@ export const SidebarItem = () => {
           <span className="-mr-1 font-medium">Dashboard</span>
         </a>
       </li>
+
       <li>
         <a
           href="#"
