@@ -1,5 +1,5 @@
 import prisma from "@/app/lib/prisma";
-import { TodosGrid } from "@/components/todos";
+import { TodosGrid } from "@/todos";
 
 export const metadata = {
   title: "Listado de TODOS",

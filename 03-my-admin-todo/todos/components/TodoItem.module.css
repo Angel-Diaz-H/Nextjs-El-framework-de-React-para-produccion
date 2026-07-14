@@ -1,6 +1,6 @@
 /* Ya no se puede aplicar clases Tailwind en CSS directo, se hizo una referencia. */
 
-@reference '../../../app/globals.css';
+@reference '../../app/globals.css';
 
 .todoDone {
   @apply flex flex-col items-center justify-between gap-2 rounded-lg border border-dashed border-blue-500 bg-blue-50 p-5 line-through shadow-sm sm:flex-row sm:gap-0;
