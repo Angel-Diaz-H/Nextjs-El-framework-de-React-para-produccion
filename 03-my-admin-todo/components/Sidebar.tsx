@@ -29,7 +29,7 @@ export const Sidebar = () => {
         <div className="-mx-6 px-6 py-4">
           <Link href="#" title="home">
             <Image
-              src="/"
+              src="/favicon.ico"
               className="h-10 w-36 rounded-3xl bg-teal-500"
               alt="tailus logo"
               width={150}
@@ -40,7 +40,7 @@ export const Sidebar = () => {
 
         <div className="mt-8 text-center">
           <Image
-            src="/"
+            src="/favicon.ico"
             alt=""
             className="m-auto h-10 w-10 rounded-full bg-sky-500 object-cover lg:h-28 lg:w-28"
             width={150}
