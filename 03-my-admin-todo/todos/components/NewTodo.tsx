@@ -2,12 +2,9 @@
 
 import { FormEvent, useState } from "react";
 import { IoTrashOutline } from "react-icons/io5";
-// import * as todosApi from "@/todos/helpers/todos";
-import { useRouter } from "next/navigation";
-import { addTodo } from "../actions/todo-actions";
+import { addTodo, deleteCompleted } from "../actions/todo-actions";
 
 export const NewTodo = () => {
-  const router = useRouter();
   const [description, setDescription] = useState("");
 
   const onSubmit = async (e: FormEvent) => {
@@ -16,17 +13,7 @@ export const NewTodo = () => {
 
     await addTodo(description);
     setDescription("");
-    // router.refresh();
   };
-
-  const deleteCompleted = async () => {
-    // await todosApi.deleteCompletedTodos();
-    router.refresh();
-  };
-
-  //   await fetch("/api/todos", { method: "DELETE" });
-  //   router.refresh();
-  // };
 
   return (
     <form onSubmit={onSubmit} className="flex w-full">
