@@ -17,6 +17,15 @@ export const NewTodo = () => {
     router.refresh();
   };
 
+  const deleteCompleted = async () => {
+    await todosApi.deleteCompletedTodos();
+    router.refresh();
+  };
+
+  //   await fetch("/api/todos", { method: "DELETE" });
+  //   router.refresh();
+  // };
+
   return (
     <form onSubmit={onSubmit} className="flex w-full">
       <input
@@ -37,9 +46,9 @@ export const NewTodo = () => {
       <span className="flex flex-1"></span>
 
       <button
-        //TODO: onClick={ () => deleteCompleted() }
+        onClick={() => deleteCompleted()}
         type="button"
-        className="ml-2 flex items-center justify-center gap-2 rounded-xl bg-red-400 p-2 text-white transition-all hover:bg-red-700"
+        className="ml-2 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-red-400 p-2 text-white transition-all hover:bg-red-700"
       >
         <IoTrashOutline />
         Borrar completados

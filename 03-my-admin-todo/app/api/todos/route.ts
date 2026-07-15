@@ -35,3 +35,14 @@ export async function POST(request: Request) {
     return NextResponse.json(error, { status: 404 });
   }
 }
+
+export async function DELETE() {
+  try {
+    const deletedTodos = await prisma.todo.deleteMany({
+      where: { complete: true },
+    });
+    return NextResponse.json(`${deletedTodos.count} to-do eliminados`);
+  } catch (error) {
+    return NextResponse.json(error, { status: 404 });
+  }
+}
