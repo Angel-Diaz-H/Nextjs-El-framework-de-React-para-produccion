@@ -1,15 +1,4 @@
-// "use client";
-
 import { hasCookie, getCookie, setCookie } from "cookies-next";
-
-/* 
-cookie: cart
-{
-'uui-123-1':4,
-'uui-123-2':1,
-'uui-123-3':2,
-}
-*/
 
 export const getCookieCart = (): { [id: string]: number } => {
   if (hasCookie("cart")) {
@@ -33,5 +22,18 @@ export const addProductToCart = (id: string) => {
 export const removeProductFromCart = (id: string) => {
   const cookieCart = getCookieCart();
   delete cookieCart[id];
+  setCookie("cart", JSON.stringify(cookieCart));
+};
+
+export const removeSingleFromCart = (id: string) => {
+  const cookieCart = getCookieCart();
+  if (!cookieCart[id]) return;
+
+  const itemsInCart = cookieCart[id] - 1;
+  if (itemsInCart <= 0) {
+    delete cookieCart[id];
+  } else {
+    cookieCart[id] = itemsInCart;
+  }
   setCookie("cart", JSON.stringify(cookieCart));
 };
