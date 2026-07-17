@@ -1,4 +1,10 @@
-import { CiBellOn, CiChat1, CiMenuBurger, CiSearch } from "react-icons/ci";
+import {
+  CiBellOn,
+  CiChat1,
+  CiMenuBurger,
+  CiSearch,
+  CiShoppingBasket,
+} from "react-icons/ci";
 
 export const TopMenu = () => {
   return (
@@ -32,8 +38,10 @@ export const TopMenu = () => {
           <button className="flex h-10 w-10 items-center justify-center rounded-xl border bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
             <CiChat1 size={25} />
           </button>
-          <button className="flex h-10 w-10 items-center justify-center rounded-xl border bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
-            <CiBellOn size={25} />
+          <button className="flex h-10 w-15 items-center justify-center gap-2 rounded-xl border bg-gray-100 font-bold focus:bg-gray-100 active:bg-gray-200">
+            {/* <CiBellOn size={25} /> */}
+            <span className="gap-2 text-sm">10</span>
+            <CiShoppingBasket size={25} />
           </button>
         </div>
       </div>

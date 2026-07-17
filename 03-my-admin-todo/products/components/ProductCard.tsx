@@ -1,14 +1,20 @@
+"use client";
 import Image from "next/image";
 import { IoAddCircleOutline, IoTrashOutline } from "react-icons/io5";
 import { Product } from "../data/products";
 import { Star } from "./Star";
+import { addProductToCart } from "@/shopping-cart/actions/actions";
 
 interface Props {
   product: Product;
 }
 
 export const ProductCard = ({ product }: Props) => {
-  const { name, price, rating, image } = product;
+  const { id, name, price, rating, image } = product;
+
+  const onAddToCart = () => {
+    addProductToCart(id);
+  };
 
   return (
     <div className="max-w-sm rounded-lg border-gray-100 bg-white shadow">
@@ -49,7 +55,10 @@ export const ProductCard = ({ product }: Props) => {
           <span className="text-3xl font-bold text-gray-900">{price}</span>
 
           <div className="flex">
-            <button className="mr-2 rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-800">
+            <button
+              onClick={onAddToCart}
+              className="mr-2 rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-800"
+            >
               <IoAddCircleOutline size={25} />
             </button>
             <button className="rounded-lg bg-red-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-700 focus:ring-4 focus:ring-red-800">
