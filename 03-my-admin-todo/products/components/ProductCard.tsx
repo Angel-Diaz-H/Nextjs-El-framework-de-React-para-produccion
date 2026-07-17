@@ -3,7 +3,10 @@ import Image from "next/image";
 import { IoAddCircleOutline, IoTrashOutline } from "react-icons/io5";
 import { Product } from "../data/products";
 import { Star } from "./Star";
-import { addProductToCart } from "@/shopping-cart/actions/actions";
+import {
+  addProductToCart,
+  removeProductFromCart,
+} from "@/shopping-cart/actions/actions";
 import { useRouter } from "next/navigation";
 
 interface Props {
@@ -15,6 +18,11 @@ export const ProductCard = ({ product }: Props) => {
   const router = useRouter();
   const onAddToCart = () => {
     addProductToCart(id);
+    router.refresh();
+  };
+
+  const onRemoveFromCart = () => {
+    removeProductFromCart(id);
     router.refresh();
   };
 
@@ -53,8 +61,10 @@ export const ProductCard = ({ product }: Props) => {
         </div>
 
         {/* Price and Add to Cart */}
-        <div className="flex items-center justify-between">
-          <span className="text-3xl font-bold text-gray-900">{price}</span>
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-3xl font-bold text-gray-900">
+            ${price.toFixed(2)}
+          </span>
 
           <div className="flex">
             <button
@@ -63,7 +73,10 @@ export const ProductCard = ({ product }: Props) => {
             >
               <IoAddCircleOutline size={25} />
             </button>
-            <button className="rounded-lg bg-red-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-700 focus:ring-4 focus:ring-red-800">
+            <button
+              onClick={onRemoveFromCart}
+              className="cursor-pointer rounded-lg bg-red-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-700 focus:ring-4 focus:ring-red-800"
+            >
               <IoTrashOutline size={20} />
             </button>
           </div>
